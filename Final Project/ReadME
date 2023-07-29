@@ -1,0 +1,29 @@
+For my program i chose option 7, Implement a program that uses a queue data structure to simulate a multi-
+level priority queue scheduling system. Although the requirement for the project include a gui, i was not able to figure out
+how to implement one. 
+
+The way my multi-level priority queue scheduling system is implemented is by assigning each process in the queue with a 'Burst time', which is the number of cycles
+each process requires before completion. Each process is represented in the queue by its burst time. When run queue is called, you are prompted to enter a run time for the program.
+One unit of run time is equal to one unit of burst time, and represents a cpu cycle. There are three different levels of priority queues, 1 being the highest and 3 being the lowest.
+Process can be added into any priority queue at the back of the queue. Process in the highest priority queue are handled first, followed by the middle and then lowest priority queue.
+The way in which the run time is distributed to the queues varies on the method being used. In the first method, the fixed priority preemptive scheduling method,
+works by clearing the highest priority queue first and working down. In this method, the first queue must be empty before moving down. Any leftover runtime from the first 
+queue carries over to the second until it is empty and so on.
+The second method, the time slicing method, divides the runtime between the three queues. The highest priority process gets about half of the runtime,
+while the middle and lowest priority get about a quarter each. The way this calculation is done is by int division, so the split isnt always perfect.
+(for example, if the runtime is 10, 5 will be given the first queue, 3 to the second queue, and 2 to the third queue. I made sure to give the second queue the longer runtime
+in the case where the split isnt equal).
+ 
+The program first presents you with a menu that has 6 options to choose from. Add process, remove process, display queue, run queue, help menu, and quit process.
+Add process allows the user to enter a number that represents an option on the menu. If an invalid number is entered, the user is notified and asked for the input again.
+For some reason, if a letter is entered here instead of a number, the menu will print repeatedly until the program is killed. Not sure why, so make sure to not enter a letter.
+If the add process option is chosen, the user is prompet to enter a queue in which to add the process to, and a burst time to represent that process. The burst time is restricted to 
+numbers 1-9 in order to keep the program runtime low. If any invalid input is entered, the user is notified and asked for input agian.
+If the delete process option is chosen, the user is prompted to enter a queue in which to pop the front item from. This is a manual removal of a process, and not the same as
+as a cycle.
+If the display queue option is chosen, all three queues are displayed to the user
+If the run queue option is chosen, the user is prompted to enter a scheduling method to use (talked about above, lines 8-15), and a runtime. Depending on the method chosen
+the runtime will be divided differently, but for both, the process will continue until all queues are empty or the runtime has diminished.
+If the help option is chosen, a help menu will be printed out for the user
+If the quit option is chosen, the program is closed.
+
